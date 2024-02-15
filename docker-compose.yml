@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - micro-volume:./micro-volume
+    networks:
+      - microservice
+
+volumes:
+  micro-volume:
+
+networks:
+  microservice: {}

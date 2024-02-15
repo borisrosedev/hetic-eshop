@@ -1,0 +1,13 @@
+name: push-workflow
+run-name: ${{ github.actor }} is using the push-workflow
+on: [push]
+jobs: 
+  push-part-1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3 
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run dev
