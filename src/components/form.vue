@@ -1,6 +1,6 @@
 <template>
   <form class="form">
-    <ArticleInput v-for="(el, index) in data" :key="index" :data="el" />
+    <ArticleInput v-for="(el, index) in data" :key="index" :data="el"  :handler="handlers[el.name]"/>
     <button>{{ textButton ? textButton : 'Valider' }}</button>
   </form>
 </template>
@@ -12,7 +12,8 @@ const props = defineProps({
     type: Object,
     default: {},
   },
-  textButton: String
+  textButton: String,
+  handlers: Object
 });
 onMounted(()=> {
     console.log('Form component has mounted', props.data, props.textButton);

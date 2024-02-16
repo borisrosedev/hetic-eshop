@@ -26,6 +26,7 @@ const selectedOption = ref("");
 
 const props = defineProps({
   data: Array,
+  handler: Function
 });
 
 onMounted(() => {
@@ -33,6 +34,7 @@ onMounted(() => {
 });
 
 const optionHandler = (option) => {
+    props.handler(option);
     selectedOption.value = option 
     showOptions.value = false
 }
@@ -49,6 +51,7 @@ const optionHandler = (option) => {
 .article-select {
   display: flex;
   border: solid black 1px;
+  margin: 10px 0;
 
   & > section {
     height: 40px;

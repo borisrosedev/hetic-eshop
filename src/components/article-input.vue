@@ -1,10 +1,14 @@
 <template>
   <article class="article-input" v-if="data.type != 'select'">
     <label :for="data.name"></label>
-    <input :placeholder="data.placeholder" :type="data.type" :id="data.name" />
+    <input
+      :placeholder="data.placeholder"
+      :type="data.type"
+      :id="data.name"
+      @input="(e) => handler(e)"
+    />
   </article>
-  <ArticleSelect :data="data" v-else/>
-  
+  <ArticleSelect :data="data" :handler="handler" v-else />
 </template>
 <script setup>
 import { onMounted } from "vue";
@@ -14,6 +18,7 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  handler: Function,
 });
 
 onMounted(() => {

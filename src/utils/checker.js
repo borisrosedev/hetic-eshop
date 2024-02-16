@@ -1,9 +1,15 @@
-import patterns from "../constants/patterns";
+import PATTERNS from "../constants/patterns";
 export default function (somethingToCheck, type) {
   let result = false;
+  let newRegExp = "";
   if (type == "password") {
-    const newRegExp = new RegExp(patterns.password, "g");
-    result = newRegExp.test(somethingToCheck);
+    newRegExp = new RegExp(PATTERNS.password, "g");
+    result = newRegExp.test(somethingToCheck)
   }
+  if(type == 'email'){
+    newRegExp = new RegExp(PATTERNS.email, "g");
+    result = newRegExp.test(somethingToCheck)
+  }
+  
   return result;
 }
