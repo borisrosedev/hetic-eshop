@@ -1,11 +1,14 @@
 <template>
-  <article class="article-input">
+  <article class="article-input" v-if="data.type != 'select'">
     <label :for="data.name"></label>
     <input :placeholder="data.placeholder" :type="data.type" :id="data.name" />
   </article>
+  <ArticleSelect :data="data" v-else/>
+  
 </template>
 <script setup>
 import { onMounted } from "vue";
+import ArticleSelect from "./article-select.vue";
 const props = defineProps({
   data: {
     type: Object,

@@ -12,14 +12,20 @@ import Form from "../components/form.vue";
 const inputs = [
   {
     name: "email",
-    placeholder: "Email",
+    placeholder: "Entrez votre identifiant",
     type: "email"
   },
   {
     name: "password",
-    placeholder: "Password",
+    placeholder: "Entrez votre mot de passe",
     type: "password"
   },
+  {
+    name: 'role',
+    type:'select',
+    options: ['vendeur', 'acheteur']
+  }
+
 ];
 </script>
 <style lang="scss" scoped>
@@ -38,6 +44,7 @@ const inputs = [
   @include FlexBox(column);
   padding: 20px;
   width: 400px;
+  background-color: var(--secondary-color);
 
 }
 </style>

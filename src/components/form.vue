@@ -24,7 +24,6 @@ onMounted(()=> {
   display: flex;
   flex-direction: column;
   width: 100%;
-  box-shadow: 1px 1px 5px gray;
   padding: 10px;
 }
 

@@ -42,6 +42,7 @@
 header {
   @include flexBox(row,space-between,center);
   background-color: var(--primary-color);
+  color: white;
   padding: 0 10px;
   height: 8vh;
   position: fixed;

@@ -8,7 +8,7 @@ import Products from './pages/Products.vue'
 import { createVuePlugin } from 'harlem'
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faSignInAlt, faShoppingBag, faStoreAlt   } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faSignInAlt, faShoppingBag, faStoreAlt, faChevronUp, faChevronDown   } from '@fortawesome/free-solid-svg-icons'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -37,7 +37,7 @@ const router = createRouter({
     history: createWebHashHistory()
 })
 
-library.add(faShoppingBag, faHome, faSignInAlt, faStoreAlt)
+library.add(faShoppingBag, faHome, faSignInAlt, faStoreAlt, faChevronUp, faChevronDown)
 const app = createApp(App)
 /* add icons to the library */
 
