@@ -9,7 +9,7 @@ import {
 import { db } from "../../config/firebase.config";
 
 
-export class FirebaseService {
+export class FirestoreService {
   static async fetchAllDocumentsFromCollection(coll) {
     let documents = [];
     const querySnapshot = await getDocs(collection(db, coll));

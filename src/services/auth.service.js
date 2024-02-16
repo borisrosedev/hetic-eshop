@@ -14,6 +14,8 @@ export class AuthService {
     }
   }
   static async login(email, password) {
+    console.log('email', email)
+    console.log('password',password)
     const result = await signInWithEmailAndPassword(auth, email, password);
     if (result.user) {
       const { email, uid } = result.user;

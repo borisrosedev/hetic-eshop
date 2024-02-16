@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, onMounted, watch } from "vue";
-import { FirebaseService } from "../../services/firestore.service";
+import { FirestoreService } from "../../services/firestore.service";
 
 export const useProductStore = defineStore("product", () => {
   onMounted(() => {
@@ -12,7 +12,7 @@ export const useProductStore = defineStore("product", () => {
 
   const fetchProductsFromFirebaseService = async () => {
     console.log("action[product-fetch]");
-    products.value = await FirebaseService.fetchAllDocumentsFromCollection(
+    products.value = await FirestoreService.fetchAllDocumentsFromCollection(
       "products"
     );
   };

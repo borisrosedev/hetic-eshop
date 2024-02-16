@@ -37,6 +37,12 @@
 import { reactive, ref, watch } from "vue";
 import Form from "../components/form.vue";
 import checker from "../utils/checker";
+import {
+  loginUser,
+  registerUser,
+  messageGetter,
+  tokenGetter,
+} from "../stores/harlem/auth-store";
 
 const fields = reactive({});
 
@@ -80,14 +86,13 @@ watch(logChoice, (val) => {
       }
     );
   }
-  fields.email = ""
-  fields.password = ""
-  fields.confirmedPassword = ""
-  fields.role = ""
-  const form = document.getElementById('form');
-  form.reset()
-  console.log('fields after option changed', fields)
-  
+  fields.email = "";
+  fields.password = "";
+  fields.confirmedPassword = "";
+  fields.role = "";
+  const form = document.getElementById("form");
+  form.reset();
+  console.log("fields after option changed", fields);
 });
 
 const emailHandler = (e) => {
@@ -117,18 +122,35 @@ const handlers = {
   role: selectHandler,
 };
 
-const onSubmit = () => {
+const onSubmit = async () => {
   console.log("into on submit");
-  if(logChoice == 'login'){
-    if (checker(fields.password, "password") && checker(fields.email, "email")) {
-    console.log("🎉 form :", fields);
+  if (logChoice.value == "login") {
+    if (
+      checker(fields.password, "password") &&
+      checker(fields.email, "email")
+    ) {
+      console.log("🎉 form :", fields);
+      await loginUser({ email: fields.email, password: fields.password }).then(
+        () => {
+          console.log(messageGetter, tokenGetter);
+        }
+      );
     }
   } else {
-    if (checker(fields.password, "password") && checker(fields.email, "email") && fields.password === fields.confirmedPassword) {
+    if (
+      checker(fields.password, "password") &&
+      checker(fields.email, "email") &&
+      fields.password === fields.confirmedPassword
+    ) {
       console.log("🎉 form :", fields);
-    } 
+      await registerUser({
+        email: fields.email,
+        password: fields.password,
+      }).then(() => {
+        console.log(messageGetter, tokenGetter);
+      });
+    }
   }
- 
 };
 </script>
 <style lang="scss" scoped>
