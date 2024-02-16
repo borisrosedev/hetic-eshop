@@ -77,6 +77,7 @@ const optionHandler = (option) => {
         cursor: pointer;
         background-color: rgba($color: #000000, $alpha: 0.6);
         color: white;
+        width: 100%;
       }
     }
   }

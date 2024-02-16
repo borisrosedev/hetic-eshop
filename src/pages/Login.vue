@@ -2,12 +2,15 @@
   <main class="login__main">
     <h1>Login</h1>
     <section class="login__form-section">
-      <Form :data="inputs" :text-button="'Connexion'" />
+      <Form :data="inputs" :text-button="'Connexion'" @submit.prevent="onSubmit"/>
     </section>
   </main>
 </template>
 <script setup>
 import Form from "../components/form.vue";
+import checker from "../utils/checker";
+
+const fields = reactive({})
 
 const inputs = [
   {
@@ -25,8 +28,28 @@ const inputs = [
     type:'select',
     options: ['vendeur', 'acheteur']
   }
-
 ];
+
+const emailHandler = (e) => {
+  fields.email = e.target.value
+}
+
+const passwordHandler = (e) => {
+  fields.password = e.target.value
+}
+
+const confirmedPasswordHandler = (e) => {
+  fields.confirmedPassword = e.target.value
+}
+
+
+
+const onSubmit = () => {
+  if(checker('alexandre', 'password')){
+    console.log('hello');
+  }
+}
+
 </script>
 <style lang="scss" scoped>
 @mixin FlexBox($dir:row, $justif:flex-start, $align:flex-start){
