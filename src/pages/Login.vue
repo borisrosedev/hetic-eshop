@@ -2,7 +2,7 @@
   <main class="login__main">
     <h1>Login</h1>
     <section class="login__form-section">
-      <Form :data="inputs" />
+      <Form :data="inputs" :text-button="'Connexion'" />
     </section>
   </main>
 </template>
@@ -13,10 +13,12 @@ const inputs = [
   {
     name: "email",
     placeholder: "Email",
+    type: "email"
   },
   {
     name: "password",
     placeholder: "Password",
+    type: "password"
   },
 ];
 </script>
@@ -35,7 +37,7 @@ const inputs = [
 .login__form-section {
   @include FlexBox(column);
   padding: 20px;
-  width: 500px;
+  width: 400px;
 
 }
 </style>

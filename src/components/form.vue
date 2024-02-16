@@ -15,7 +15,7 @@ const props = defineProps({
   textButton: String
 });
 onMounted(()=> {
-    console.log('Form component has mounted');
+    console.log('Form component has mounted', props.data, props.textButton);
 })
 </script>
 <style lang="scss" scoped>

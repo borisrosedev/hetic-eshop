@@ -2,7 +2,8 @@
 
 
 :root {
-  --primary-color:rgb(197, 197, 197);
+  --primary-color:rgb(104, 2, 168);
+  --secondary-color: rgb(220, 193, 243);
 }
 
 * {
@@ -51,4 +52,18 @@ main {
   padding-top: 8vh;
   display: flex;
 
+}
+
+button {
+  border: none;
+  background-color: var(--primary-color);
+  box-shadow: 0px 3px gainsboro;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
 }

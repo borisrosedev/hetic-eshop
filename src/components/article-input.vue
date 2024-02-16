@@ -1,7 +1,7 @@
 <template>
   <article class="article-input">
-    <label :for="name"></label>
-    <input :placeholder="placeholder" :type="type" :id="name" />
+    <label :for="data.name"></label>
+    <input :placeholder="data.placeholder" :type="data.type" :id="data.name" />
   </article>
 </template>
 <script setup>
@@ -14,7 +14,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  console.log("🟠 article input has mounted");
+  console.log("🟠 article input has mounted", props.data);
 });
 </script>
 <style lang="scss" scoped>

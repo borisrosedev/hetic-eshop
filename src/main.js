@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory } from "vue-router"
 import App from './App.vue'
 import Login from './pages/Login.vue'
 import Home from './pages/Home.vue'
+import Products from './pages/Products.vue'
 import { createVuePlugin } from 'harlem'
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -24,6 +25,11 @@ const routes = [
         path: '/login',
         component: Login
     }, 
+
+    {
+        path: '/products',
+        component: Products
+    }
 ]
 
 const router = createRouter({
