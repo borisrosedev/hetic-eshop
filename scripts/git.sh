@@ -1,3 +1,6 @@
 #!/bin/bash
-git remote add origin https://github.com/borisrosedev/hetic-eshop.git
+git status
+git log --online --graph
+git remote -v
+
 
