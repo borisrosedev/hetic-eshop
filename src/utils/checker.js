@@ -10,6 +10,11 @@ export default function (somethingToCheck, type) {
     newRegExp = new RegExp(PATTERNS.email, "g");
     result = newRegExp.test(somethingToCheck)
   }
+
+  if(type == 'name'){
+    newRegExp = new RegExp(PATTERNS.name, "g");
+    result = newRegExp.test(somethingToCheck)
+  }
   
   return result;
 }

@@ -146,6 +146,7 @@ const onSubmit = async () => {
       await registerUser({
         email: fields.email,
         password: fields.password,
+        role: fields.role,
       }).then(() => {
         console.log(messageGetter, tokenGetter);
       });
@@ -176,6 +177,13 @@ const onSubmit = async () => {
       width: 50%;
     }
   }
+
+  &__form-section {
+    @include FlexBox(column);
+    padding: 20px;
+    width: 400px;
+    background-color: var(--secondary-color);
+  }
 }
 
 .selected-log {
@@ -188,11 +196,5 @@ const onSubmit = async () => {
 .selected-log.selected-log--true {
   background-color: var(--primary-color);
   color: white;
-}
-.login__form-section {
-  @include FlexBox(column);
-  padding: 20px;
-  width: 400px;
-  background-color: var(--secondary-color);
 }
 </style>

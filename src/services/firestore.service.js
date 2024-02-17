@@ -8,7 +8,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../../config/firebase.config";
 
-
 export class FirestoreService {
   static async fetchAllDocumentsFromCollection(coll) {
     let documents = [];
@@ -25,5 +24,14 @@ export class FirestoreService {
     if (docSnap.exists()) {
       return docSnap.data();
     }
+  }
+
+  static async setNewDocument(coll, id, data) {
+    const docRef = (db, coll, id);
+    return await setDoc(docRef, { ...data }).then(() => {
+      return {
+        message: "information enregistrée",
+      };
+    });
   }
 }

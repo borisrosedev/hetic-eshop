@@ -25,4 +25,18 @@ describe.only("Checker Suite", () => {
       expect(checker("boris@gmail.com", "email")).toBe(true);
     });
   });
+
+  describe("checker params with type = name", () => {
+    it("with first param: alexandre should result in true", () => {
+      expect(checker("alexandre", "name")).toBe(true);
+    });
+
+    it("with first param: alexandre-dupont should result in true", () => {
+      expect(checker("alexandre-dupont", "name")).toBe(true);
+    });
+
+    it("with first param: alexandre dupont should result in true", () => {
+      expect(checker("alexandre dupont", "name")).toBe(true);
+    });
+  });
 });
